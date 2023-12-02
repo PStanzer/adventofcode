@@ -6,17 +6,12 @@ for line in Lines:
     possible="true"
     count += 1
     color="none"
-    print("{}".format(line.strip()))
     for w in line.split():
-        #print(w)
         if color != "none":
-            print( w.strip(',;')," ",color)
-            print(color.find(w.strip(',;')))
-            if 0 == color.find(w.strip(',;')):
-                print("OK")
+            found=color.find(w.strip(',;'))
+            if found == 0 or found == 5:
                 color="none"
             else:
-                print("color vio")
                 possible="false"
                 break
         if w.isdigit():
@@ -31,6 +26,4 @@ for line in Lines:
                 color="none"
     if possible=="true":
         res+=count
-        print(res)
 print(res)
-                
