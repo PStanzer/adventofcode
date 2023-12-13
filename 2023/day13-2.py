@@ -28,7 +28,6 @@ def validate(pat, line):
                     fixed=fix_it(pat[line-j], pat[line+1+j])
                 if not fixed:
                     return False
-    print(fixed)
     if fixed:
         return True
     else:
@@ -38,7 +37,6 @@ def fix_it(line1, line2):
     print('try to fix it')
     changed=False
     for k,c in enumerate(line1):
-        print(k)
         if c != line2[k]:
             if changed:
                 return False
@@ -61,7 +59,6 @@ for pattern in Patterns:
         s=''
         transpose=list(map(s.join, zip(*pattern)))
         for i in range(len(transpose)-1):
-            print(abs(transpose[i].count('#')-transpose[i+1].count('#')))
             if transpose[i] == transpose[i+1] or abs(transpose[i].count('#')-transpose[i+1].count('#')) == 1 :
                 if validate(transpose, i):
                     #add to res
